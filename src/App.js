@@ -22,31 +22,25 @@ function App() {
     else {
       alert(JSON.stringify(loginInput));
       setLoginInput(initialLoginState)
-      setIsLoggedIn(true)
+      // setIsLoggedIn(true)
+      alert('Login Success, But try using the Google/Facebook Login Button')
     }
   }
 
   const quickLogin = (name, email) => {
     setIsLoggedIn(true)
     setUser({ "name": name, "email": email })
-    console.log(user);
-    alert(`Welcome ${name}`)
+    // alert(`Welcome ${name}`)
   }
 
   const quickLogout = () => {
     setIsLoggedIn(false)
   }
 
-
-
-  const FacebookLogin = () => {
-    alert('Facebook Login');
-  }
-
   return (
     <div className="App">
 
-      {isLoggedIn ? <MainScreen quickLogout={quickLogout} user={user} /> : <Login FacebookLogin={FacebookLogin} handleLogin={handleLogin} handleChange={handleChange} loginInput={loginInput} quickLogin={quickLogin} quickLogout={quickLogout} />}
+      {isLoggedIn ? <MainScreen quickLogout={quickLogout} user={user} /> : <Login handleLogin={handleLogin} handleChange={handleChange} loginInput={loginInput} quickLogin={quickLogin} quickLogout={quickLogout} />}
 
     </div>
   );
